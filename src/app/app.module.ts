@@ -8,9 +8,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { HomeComponent } from './pages/home/home.component';
 import { RouterModule } from '@angular/router';
 import {MatCardModule} from '@angular/material/card';
+import { FarmComponent } from './pages/register/farm/farm.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent],
+  declarations: [AppComponent, HomeComponent, FarmComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
