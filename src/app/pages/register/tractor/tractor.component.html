@@ -1,0 +1,15 @@
+<mat-card class="card">
+  <mat-card-content>
+    <form class="form" [formGroup]="pageForm">
+      <mat-form-field class="example-form-field" appearance="fill">
+        <mat-label>Placa</mat-label>
+        <input matInput formControlName="plate" type="text" />
+      </mat-form-field>
+      <mat-form-field class="example-form-field" appearance="fill">
+        <mat-label>Ano</mat-label>
+        <input matInput formControlName="year" type="text" />
+      </mat-form-field>
+      <button mat-flat-button color="primary">Salvar</button>
+    </form>
+  </mat-card-content>
+</mat-card>
