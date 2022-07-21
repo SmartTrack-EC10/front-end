@@ -32,7 +32,8 @@
             ],
             "styles": [
               "./node_modules/leaflet/dist/leaflet.css",
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "scripts": [ "./node_modules/leaflet/dist/leaflet.js"]
           },

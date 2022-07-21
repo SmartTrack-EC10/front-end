@@ -1,1 +1,29 @@
-<p>user works!</p>
+<mat-card class="card">
+  <mat-card-content>
+    <form class="form" [formGroup]="pageForm">
+      <mat-form-field class="example-form-field" appearance="fill">
+        <mat-label>Nome</mat-label>
+        <input matInput formControlName="name" type="text" />
+      </mat-form-field>
+      <mat-form-field class="example-form-field" appearance="fill">
+        <mat-label>Profissão</mat-label>
+        <input matInput formControlName="field" type="text" />
+      </mat-form-field>
+      <mat-form-field class="example-form-field" appearance="fill">
+        <mat-label>CPF</mat-label>
+        <input matInput formControlName="CPF" type="text" />
+      </mat-form-field>
+      <mat-form-field class="example-form-field" appearance="fill">
+        <mat-label>Matricula</mat-label>
+        <input matInput formControlName="RFID" type="text" />
+      </mat-form-field>
+      <p>
+        <mat-checkbox formControlName="lgpd"></mat-checkbox>Ao criar o novo
+        usuário você declara que esta de acrodo com os termos da
+        <button style="border: 0; background-color: #fff; color: #f05e1b; cursor: pointer;" (click)="openDialog()">LGPD</button>
+      </p>
+      <button mat-flat-button color="primary"  (click)="saveUser()">Salvar</button>
+    </form>
+  </mat-card-content>
+</mat-card>
+<ngx-spinner [fullScreen] = "true"><mat-spinner></mat-spinner></ngx-spinner>

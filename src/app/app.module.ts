@@ -11,9 +11,17 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { FarmComponent } from './pages/register/farm/farm.component';
-import { UserComponent } from './pages/register/user/user.component';
+import {
+  DialogLGPDDialog,
+  UserComponent,
+} from './pages/register/user/user.component';
 import { TractorComponent } from './pages/register/tractor/tractor.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { HttpClientModule } from '@angular/common/http';
+import { NgxSpinnerModule } from "ngx-spinner";
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -22,6 +30,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FarmComponent,
     UserComponent,
     TractorComponent,
+    DialogLGPDDialog,
   ],
   imports: [
     FormsModule,
@@ -34,8 +43,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatCardModule,
     MatInputModule,
     MatIconModule,
+    MatDialogModule,
+    MatCheckboxModule,
+    HttpClientModule,
+    NgxSpinnerModule,
+    MatProgressSpinnerModule
   ],
-  providers: [],
+  providers: [HttpClientModule],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
