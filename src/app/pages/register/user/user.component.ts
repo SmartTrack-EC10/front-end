@@ -59,6 +59,6 @@ export class UserComponent implements OnInit {
 
 @Component({
   selector: 'dialog-lgpd-dialog',
-  templateUrl: 'dialog-lgpd-dialog.html',
+  templateUrl: 'dialog.lgpd.dialog.html',
 })
 export class DialogLGPDDialog {}

@@ -20,8 +20,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { HttpClientModule } from '@angular/common/http';
-import { NgxSpinnerModule } from "ngx-spinner";
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { NotificationsComponent } from './pages/notifications/notifications.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -31,6 +34,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     UserComponent,
     TractorComponent,
     DialogLGPDDialog,
+    NotificationsComponent,
   ],
   imports: [
     FormsModule,
@@ -47,7 +51,9 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatCheckboxModule,
     HttpClientModule,
     NgxSpinnerModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    NgxChartsModule,
+    MatTableModule
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent],
