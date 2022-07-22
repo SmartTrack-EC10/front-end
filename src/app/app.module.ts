@@ -25,6 +25,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NotificationsComponent } from './pages/notifications/notifications.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import {MatTableModule} from '@angular/material/table';
+import { PlotComponent } from './pages/register/plot/plot.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import {MatTableModule} from '@angular/material/table';
     TractorComponent,
     DialogLGPDDialog,
     NotificationsComponent,
+    PlotComponent,
   ],
   imports: [
     FormsModule,

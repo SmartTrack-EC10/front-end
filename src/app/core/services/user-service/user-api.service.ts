@@ -8,10 +8,17 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class UserApiService {
-  url = environment.api + '/user';
+  url = environment.api + '/entities';
   constructor(private http: HttpClient) {}
 
   saveContainer(container: User): Observable<User> {
-    return this.http.post<User>(this.url, container);
+    let httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'fiware-service': 'helixiot',
+      'fiware-servicepath': '/',
+    });
+    let options = { headers: httpHeaders };
+
+    return this.http.post<User>(this.url, container, options);
   }
 }

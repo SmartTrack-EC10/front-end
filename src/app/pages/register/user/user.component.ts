@@ -4,8 +4,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { User } from 'src/app/shared/models/user';
 import { UserApiService } from 'src/app/core/services/user-service/user-api.service';
 import { Router } from '@angular/router';
-import { NgxSpinnerService } from "ngx-spinner";
-
+import { NgxSpinnerService } from 'ngx-spinner';
+import * as uuid from 'uuid';
 
 @Component({
   selector: 'app-user',
@@ -24,10 +24,12 @@ export class UserComponent implements OnInit {
     private spinner: NgxSpinnerService
   ) {
     this.pageForm = this.fb.group({
+      id: ['urn:ngsi-ld:Person:' + uuid.v4()],
+      type: ['Person'],
       name: [''],
       field: [''],
-      CPF: [''],
-      RFID: [''],
+      cpf: [''],
+      rfid: [''],
       lgpd: [''],
     });
   }
@@ -47,7 +49,7 @@ export class UserComponent implements OnInit {
     this.spinner.show();
     this.service.saveContainer(container).subscribe({
       next() {
-        console.log(_this.isFetching)
+        console.log(_this.isFetching);
       },
       complete() {
         _this.spinner.hide();

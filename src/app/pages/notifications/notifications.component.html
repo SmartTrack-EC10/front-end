@@ -3,7 +3,6 @@
     ><ngx-charts-linear-gauge
       [view]="[400, 400]"
       [value]="value"
-      [previousValue]="previousValue"
       [units]="units"
     >
     </ngx-charts-linear-gauge>
@@ -42,8 +41,14 @@
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="openDialog(row)"></tr>
+        <tr
+          style="cursor: pointer"
+          mat-row
+          *matRowDef="let row; columns: displayedColumns"
+          (click)="openDialog(row)"
+        ></tr>
       </table>
     </div>
   </mat-card-content>
 </mat-card>
+<ngx-spinner [fullScreen] = "true"><mat-spinner></mat-spinner></ngx-spinner>
