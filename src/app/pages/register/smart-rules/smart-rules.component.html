@@ -1,1 +1,26 @@
-<p>smart-rules works!</p>
+<mat-card class="card">
+    <mat-card-content>
+        <form class="form" [formGroup]="pageForm">
+            <mat-form-field class="example-form-field" appearance="fill">
+                <mat-label>Descrição</mat-label>
+                <input matInput formControlName="description" type="text" />
+            </mat-form-field>
+            <mat-form-field class="example-form-field" appearance="fill">
+                <mat-label>Regra</mat-label>
+                <mat-select formControlName="type" disableRipple>
+                    <mat-option value=">">Maior</mat-option>
+                    <mat-option value="<">Menor</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="example-form-field" appearance="fill">
+                <mat-label>Valor</mat-label>
+                <input matInput formControlName="value" type="text" />
+            </mat-form-field>
+
+            <button mat-flat-button color="primary" (click)="saveRule()">Salvar</button>
+        </form>
+    </mat-card-content>
+</mat-card>
+<ngx-spinner [fullScreen]="true">
+    <mat-spinner></mat-spinner>
+</ngx-spinner>

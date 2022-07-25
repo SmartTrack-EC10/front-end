@@ -27,6 +27,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import {MatTableModule} from '@angular/material/table';
 import { PlotComponent } from './pages/register/plot/plot.component';
 import { SmartRulesComponent } from './pages/register/smart-rules/smart-rules.component';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { SmartRulesComponent } from './pages/register/smart-rules/smart-rules.co
     NgxSpinnerModule,
     MatProgressSpinnerModule,
     NgxChartsModule,
-    MatTableModule
+    MatTableModule,
+    MatSelectModule
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent],
