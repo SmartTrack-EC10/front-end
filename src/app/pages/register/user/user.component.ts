@@ -34,7 +34,7 @@ export class UserComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   openDialog() {
     const dialogRef = this.dialog.open(DialogLGPDDialog);
@@ -43,8 +43,19 @@ export class UserComponent implements OnInit {
     });
   }
 
+  formatObject(user: any) {
+    return {
+      id: user.id,
+      type: user.type,
+      name: { type: "Text", value: user.name },
+      field: { type: "Text", value: user.field },
+      rfid: { type: "Text", value: user.rfid },
+      cpf: { type: "Text", value: user.cpf },
+    }
+  }
+
   saveUser() {
-    const container = this.pageForm.value as User;
+    const container = this.formatObject(this.pageForm.value );
     const _this = this;
     this.spinner.show();
     this.service.saveContainer(container).subscribe({
@@ -63,4 +74,4 @@ export class UserComponent implements OnInit {
   selector: 'dialog-lgpd-dialog',
   templateUrl: 'dialog.lgpd.dialog.html',
 })
-export class DialogLGPDDialog {}
+export class DialogLGPDDialog { }

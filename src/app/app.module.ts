@@ -26,6 +26,7 @@ import { NotificationsComponent } from './pages/notifications/notifications.comp
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import {MatTableModule} from '@angular/material/table';
 import { PlotComponent } from './pages/register/plot/plot.component';
+import { SmartRulesComponent } from './pages/register/smart-rules/smart-rules.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { PlotComponent } from './pages/register/plot/plot.component';
     DialogLGPDDialog,
     NotificationsComponent,
     PlotComponent,
+    SmartRulesComponent,
   ],
   imports: [
     FormsModule,

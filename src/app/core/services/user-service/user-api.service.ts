@@ -11,7 +11,7 @@ export class UserApiService {
   url = environment.api + '/entities';
   constructor(private http: HttpClient) {}
 
-  saveContainer(container: User): Observable<User> {
+  saveContainer(container: any): Observable<any> {
     let httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
       'fiware-service': 'helixiot',
@@ -19,6 +19,6 @@ export class UserApiService {
     });
     let options = { headers: httpHeaders };
 
-    return this.http.post<User>(this.url, container, options);
+    return this.http.post<any>(this.url, container, options);
   }
 }
