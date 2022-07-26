@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { UserApiService } from 'src/app/core/services/user-service/user-api.service';
+import { SmartRuleApiService } from 'src/app/core/services/smart-rules-service/smart-rule-api.service';
 import * as uuid from 'uuid';
 
 @Component({
@@ -14,7 +14,7 @@ export class SmartRulesComponent implements OnInit {
   pageForm: FormGroup;
 
   constructor(private fb: FormBuilder,
-    private service: UserApiService,
+    private service: SmartRuleApiService,
     private route: Router,
     private spinner: NgxSpinnerService) {
     this.pageForm = this.fb.group({

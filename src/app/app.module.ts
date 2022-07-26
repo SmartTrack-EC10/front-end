@@ -28,6 +28,9 @@ import {MatTableModule} from '@angular/material/table';
 import { PlotComponent } from './pages/register/plot/plot.component';
 import { SmartRulesComponent } from './pages/register/smart-rules/smart-rules.component';
 import {MatSelectModule} from '@angular/material/select';
+import { AboutComponent } from './pages/about/about.component';
+import { HelpComponent } from './pages/help/help.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +43,9 @@ import {MatSelectModule} from '@angular/material/select';
     NotificationsComponent,
     PlotComponent,
     SmartRulesComponent,
+    AboutComponent,
+    HelpComponent,
+    DashboardComponent,
   ],
   imports: [
     FormsModule,

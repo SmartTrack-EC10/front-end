@@ -1,0 +1,23 @@
+<mat-card class="card">
+    <mat-card-content>
+      <form class="form" [formGroup]="pageForm">
+        <mat-form-field class="example-form-field" appearance="fill">
+          <mat-label>Nome</mat-label>
+          <input matInput formControlName="name" type="text" />
+        </mat-form-field>
+        <mat-form-field class="example-form-field" appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" type="text" />
+        </mat-form-field>
+        <mat-form-field class="example-form-field" appearance="fill">
+            <mat-label>Asunto</mat-label>
+            <input matInput formControlName="subject" type="text" />
+          </mat-form-field>
+        <mat-form-field class="example-form-field" appearance="fill">
+          <mat-label>Mensagem</mat-label>
+          <textarea matInput formControlName="message" rows="10"></textarea>
+        </mat-form-field>
+        <button mat-flat-button color="primary" (click)='sendEmail()'>Salvar</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
