@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  showCollapsible:boolean = false;
+
   title = 'st';
+  toogleCollapsible(){
+    this.showCollapsible = !this.showCollapsible;
+
+  }
 }

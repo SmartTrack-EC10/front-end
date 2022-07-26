@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  api: 'http://3.88.205.182:1026/v2',
+  apiIoT: 'http://3.88.205.182:4041/iot',
 };
 
 /*

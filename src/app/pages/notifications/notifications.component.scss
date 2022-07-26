@@ -1,0 +1,49 @@
+.card{
+    width: 820px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+}
+
+.list{
+    height: 300px;
+    overflow: scroll;
+    overflow-x: hidden;
+    width: 820px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+}
+
+.table{
+    width: 800px;
+}
+
+table{
+    width: 100%;
+}
+
+.content{
+    display: flex;
+    flex-direction: row;
+    width: 500px;
+    justify-content: space-around;
+}
+
+.text{
+    font-size: 20px;
+    font-family: ubuntu;
+    padding-bottom: 10px;
+}
+
+.value{
+    font-size: 20px;
+    font-family: ubuntu;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
