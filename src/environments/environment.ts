@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   api: 'http://3.88.205.182:1026/v2',
+  apiIoT: 'http://3.88.205.182:4041/iot',
 };
 
 /*
