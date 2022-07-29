@@ -24,10 +24,12 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NotificationsComponent } from './pages/notifications/notifications.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
-import {MatTableModule} from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
+import { MatSelectModule } from '@angular/material/select';
 import { PlotComponent } from './pages/register/plot/plot.component';
-import { SmartRulesComponent } from './pages/register/smart-rules/smart-rules.component';
-import {MatSelectModule} from '@angular/material/select';
+
+
+import { SmartRules } from './pages/register/smart-rules/smart-rules.module'
 
 @NgModule({
   declarations: [
@@ -38,8 +40,7 @@ import {MatSelectModule} from '@angular/material/select';
     TractorComponent,
     DialogLGPDDialog,
     NotificationsComponent,
-    PlotComponent,
-    SmartRulesComponent,
+    PlotComponent
   ],
   imports: [
     FormsModule,
@@ -59,7 +60,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatProgressSpinnerModule,
     NgxChartsModule,
     MatTableModule,
-    MatSelectModule
+    MatSelectModule,
+    SmartRules
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent],

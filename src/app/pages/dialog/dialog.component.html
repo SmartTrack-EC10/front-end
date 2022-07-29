@@ -1,0 +1,12 @@
+<div class="dialogIcons">
+    <fa-icon class="fa-circle-question" [icon]="faCircleQuestion" *ngIf="selectedType == 'Information'"></fa-icon>
+    <fa-icon class="fa-circli-xmark" [icon]="faCircleExclamation" *ngIf="selectedType == 'Warning'"></fa-icon>
+    <fa-icon class="fa-circli-exclamation" [icon]="faCircleXmark" *ngIf="selectedType == 'Error'"></fa-icon> 
+</div>
+<p class="title">Message</p>
+<div mat-dialog-content>  
+  <p class="message">{{selectedMessage}}</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-flat-button color="primary" (click)="onClose()">Close</button>
+</div>

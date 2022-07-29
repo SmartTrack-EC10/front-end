@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  api: 'http://3.88.205.182:1026/v2',
+  apiBroker: 'http://3.88.205.182:1026/v2',
+  apiAgent: 'http://3.88.205.182:4041',
+  apiPython: 'http://localhost:8080'
 };
 
 /*

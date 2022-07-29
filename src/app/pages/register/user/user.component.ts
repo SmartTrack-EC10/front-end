@@ -47,10 +47,10 @@ export class UserComponent implements OnInit {
     return {
       id: user.id,
       type: user.type,
-      name: { type: "Text", value: user.name },
+      name:  { type: "Text", value: user.name  },
       field: { type: "Text", value: user.field },
-      rfid: { type: "Text", value: user.rfid },
-      cpf: { type: "Text", value: user.cpf },
+      rfid:  { type: "Text", value: user.rfid  },
+      cpf:   { type: "Text", value: user.cpf   }
     }
   }
 
