@@ -41,9 +41,9 @@ export class HomeComponent implements AfterViewInit {
 
     L.polygon(latlngs, { color: 'red' }).addTo(this.map).bindPopup('FTT1');
 
-    this.map.on('click', function(e: { latlng: { lat: string; lng: string; }; }) {
-      console.log("Lat, Lon : " + e.latlng.lat + ", " + e.latlng.lng)
-  });
+    // this.map.on('click', function(e: { latlng: { lat: string; lng: string; }; }) {
+    //   console.log("Lat, Lon : " + e.latlng.lat + ", " + e.latlng.lng)
+    // });
 
   }
   constructor() {}

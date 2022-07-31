@@ -1,0 +1,101 @@
+<mat-card class="card">
+    <mat-card-content>
+        <mat-grid-list cols="2" class="grid">
+            <mat-grid-tile class="contentTile">       
+                <form class="form" [formGroup]="pageForm">
+                    <mat-form-field class="example-form-field" appearance="fill">
+                        <mat-label>Descrição:</mat-label>
+                        <input matInput formControlName="description" type="text" placeholder="Informe uma descrição para a regra." />
+                    </mat-form-field>
+        
+                    <mat-form-field class="example-form-field" appearance="fill">
+                        <mat-label>Message:</mat-label>
+                        <input matInput formControlName="message" type="text" placeholder="Informe uma messagem para ser enviada com a notificação." />
+                    </mat-form-field>
+                    
+                    <mat-radio-group [(ngModel)]="selectedEntitiesType" (change)="entitiesTypeChange()" formControlName="entitiesType">
+                        <mat-label>Entities Type:</mat-label><br>  
+                        <mat-radio-button class="example-radio-button" *ngFor="let type of entitiesTypes" [value]="type"> {{type}} </mat-radio-button>
+                    </mat-radio-group>
+        
+                    <mat-radio-group [(ngModel)]="selectedPattern" formControlName="isPattern">
+                        <mat-label>Truck Type:</mat-label><br>  
+                        <mat-radio-button class="example-radio-button" *ngFor="let pattern of entitiesIsPattern" [value]="pattern"> {{pattern}} </mat-radio-button>
+                    </mat-radio-group>
+
+                    <mat-radio-group [(ngModel)]="selectedRuleType" formControlName="isRuleType">
+                        <mat-label>Rule Type:</mat-label><br>  
+                        <mat-radio-button class="example-radio-button" [value]="'Measurements'"> Measurements </mat-radio-button>
+                        <mat-radio-button *ngIf="selectedEntitiesType === 'Truck'" class="example-radio-button" [value]="'Geofence'"> Geofence </mat-radio-button>
+                    </mat-radio-group>
+        
+                    <mat-form-field class="example-form-field" appearance="fill">
+                        <mat-label>Expire date:</mat-label>
+                        <input matInput formControlName="expired" [matDatepicker]="picker" placeholder="MM/DD/YYYY">                
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field> 
+        
+                    <button mat-flat-button color="primary" (click)="saveRule()">Salvar</button>
+                </form>
+            </mat-grid-tile> 
+            <mat-grid-tile class="grid">
+                <div class="listTrucks">
+                    <mat-expansion-panel [expanded]="selectedPattern === 'Devices' && selectedEntitiesType === 'Person'" disabled>
+                        <mat-label>Person: </mat-label> 
+                        <div class="checkBoxDevices" *ngFor="let p of personOptions">
+                            <mat-checkbox [(ngModel)]="p.status" [checked]="p.status" name="{{p.object.id}}" [disabled]="isValidPersonList"> {{p.object.name}} </mat-checkbox>
+                        </div> 
+                        <div class="devicesButtons">
+                            <button mat-flat-button class="loadDevices"   color="primary" (click)="LoadMoreObjectList('Person')" [disabled]="!hasMorePerson"> Load More </button>
+                            <button mat-flat-button class="saveDevices"   color="primary" (click)="saveObjectList('Person')"     [disabled]="isValidPersonList"> Save </button>
+                            <button mat-flat-button class="updateDevices" color="primary" (click)="updateObjectList('Person')"   [disabled]="!isValidPersonList"> Update </button>
+                        </div>
+                    </mat-expansion-panel>
+
+                    <mat-expansion-panel [expanded]="selectedPattern === 'Devices' && selectedEntitiesType === 'Truck'" disabled>
+                        <mat-label>Truck: </mat-label> 
+                        <div class="checkBoxDevices" *ngFor="let t of truckOptions">
+                            <mat-checkbox [(ngModel)]="t.status" [checked]="t.status" name="{{t.object.id}}" [disabled]="isValidTruckList"> {{t.object.alias}} </mat-checkbox>
+                        </div> 
+                        <div class="devicesButtons">
+                            <button mat-flat-button class="loadDevices"   color="primary" (click)="LoadMoreObjectList('Truck')" [disabled]="!hasMoreTruck"> Load More </button>
+                            <button mat-flat-button class="saveDevices"   color="primary" (click)="saveObjectList('Truck')"     [disabled]="isValidTruckList"> Save </button>
+                            <button mat-flat-button class="updateDevices" color="primary" (click)="updateObjectList('Truck')"   [disabled]="!isValidTruckList"> Update </button>
+                        </div>
+                    </mat-expansion-panel>
+
+                    <mat-expansion-panel [expanded]="selectedPattern === 'Devices' && selectedEntitiesType === 'AgriFarm'" disabled>
+                        <mat-label>AgriFarm: </mat-label> 
+                        <div class="checkBoxDevices" *ngFor="let af of agriFarmOptions">
+                            <mat-checkbox [(ngModel)]="af.status" [checked]="af.status" name="{{af.object.id}}" [disabled]="isValidAgriFarmList"> {{af.object.alias}} </mat-checkbox>
+                        </div> 
+                        <div class="devicesButtons">
+                            <button mat-flat-button class="loadDevices"   color="primary" (click)="LoadMoreObjectList('AgriFarm')" [disabled]="!hasMoreAgriFarm"> Load More </button>
+                            <button mat-flat-button class="saveDevices"   color="primary" (click)="saveObjectList('AgriFarm')"     [disabled]="isValidAgriFarmList"> Save </button>
+                            <button mat-flat-button class="updateDevices" color="primary" (click)="updateObjectList('AgriFarm')"   [disabled]="!isValidAgriFarmList"> Update </button>
+                        </div>
+                    </mat-expansion-panel>
+
+                    <mat-expansion-panel [expanded]="selectedPattern === 'Devices' && selectedEntitiesType === 'AgriParcel'" disabled>
+                        <mat-label>AgriParcel: </mat-label> 
+                        <div class="checkBoxDevices" *ngFor="let ap of agriParcelOptions">
+                            <mat-checkbox [(ngModel)]="ap.status" [checked]="ap.status" name="{{ap.object.id}}" [disabled]="isValidAgriParcelList"> {{ap.object.alias}} </mat-checkbox>
+                        </div> 
+                        <div class="devicesButtons">
+                            <button mat-flat-button class="loadDevices"   color="primary" (click)="LoadMoreObjectList('AgriParcel')" [disabled]="!hasMoreAgriParcel"> Load More </button>
+                            <button mat-flat-button class="saveDevices"   color="primary" (click)="saveObjectList('AgriParcel')"     [disabled]="isValidAgriParcelList"> Save </button>
+                            <button mat-flat-button class="updateDevices" color="primary" (click)="updateObjectList('AgriParcel')"   [disabled]="!isValidAgriParcelList"> Update </button>
+                        </div>
+                    </mat-expansion-panel>
+
+                    <map-rule [selectedRuleType]="selectedRuleType" [selectedEntitiesType]="selectedEntitiesType" (geoStructSend)="buildQueryGeofence($event)"></map-rule>
+                    <measurement-rule [selectedRuleType]="selectedRuleType" (meStructSend)="buildQueryMeasurements($event)"></measurement-rule>
+                </div>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </mat-card-content>
+</mat-card>
+<ngx-spinner [fullScreen]="true">
+    <mat-spinner></mat-spinner>
+</ngx-spinner>

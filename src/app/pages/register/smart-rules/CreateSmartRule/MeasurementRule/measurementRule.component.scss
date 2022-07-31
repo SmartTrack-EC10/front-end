@@ -1,0 +1,59 @@
+.card {
+    width: 50%;
+    height: -webkit-fill-available;
+    
+    .form {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+td {
+    text-align: center; 
+}
+
+td.td_type, td.td_operation, td.td_value {
+    background-color: white;
+    margin: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+.ng-fa-icon {
+    color: red;
+}
+
+::ng-deep .mat-expansion-panel-body{
+    padding: 0 0 16px !important;
+}
+
+.mat-expansion-panel.mat-expanded {
+    background-color: rgba(0, 0, 0, 0.04);
+    padding: .75em 0.75em 0 0.75em;
+    margin-bottom: 1.34375em;
+
+    button.ruleButton {
+        margin-left: 85%;
+        margin-bottom: 10px;
+    }
+}
+
+.mat-radio-group {
+    background-color: rgba(0, 0, 0, 0.04);
+    padding: .75em 0.75em 0 0.75em;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    margin-bottom: 1.34375em;
+}
+
+.mat-radio-button {
+    margin-left: 16px;
+    margin-top: 5px;
+    margin-bottom: 1.34375em;
+}
+
+button {
+    margin: 10px 10px;
+}
+
+tr:nth-child(2n) {
+    background-color: rgb(169,169,169,0.2);
+}
