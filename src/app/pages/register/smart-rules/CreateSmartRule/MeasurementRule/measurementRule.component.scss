@@ -53,3 +53,7 @@ td.td_type, td.td_operation, td.td_value {
 button {
     margin: 10px 10px;
 }
+
+tr:nth-child(2n) {
+    background-color: rgb(169,169,169,0.2);
+}

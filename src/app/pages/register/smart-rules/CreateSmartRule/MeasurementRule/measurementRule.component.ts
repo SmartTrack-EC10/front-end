@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent, DialogData } from 'src/app/pages/dialog/dialog.component'
 import { MeasurementsStruct } from "../newSmartRules.component"
 
 import { faDeleteLeft } from '@fortawesome/free-solid-svg-icons';
@@ -34,7 +36,7 @@ export class MeasurementRuleComponent implements OnInit {
   operations: Operations[] = [{ value: "<"  }, { value: ">"  }, { value: "<=" }, { value: ">=" }, { value: "==" }, { value: "!=" }]
   operationsId: Operations[] = [{ value: "==" }, { value: "!=" }] 
   
-  constructor(){}
+  constructor(private dialogMap: MatDialog){}
 
   ngOnInit(): void {
   }
@@ -42,11 +44,10 @@ export class MeasurementRuleComponent implements OnInit {
   //send the rules to parent's page
   onSave(): void {  
     if(this.measurementsStructList.length == 0){
-      this.showAlert("Please, insert one or more values in Rules!", "warning");
+      this.showMessageDialog("Please, insert one or more values in Rules!", "Warning");
     }
     else if(this.checkMeasurementsRules()){
-      this.showAlert("Please, insert all values in Rules!", "warning");
-      console.log(this.measurementsStructList);
+      this.showMessageDialog("Please, insert all values in Rules!", "Warning");
     }
     else{
       this.isValidMeasurement = true;
@@ -87,8 +88,14 @@ export class MeasurementRuleComponent implements OnInit {
     this.measurementsStructList.splice(index, 1);
   }
 
-  //display a alert (needs implement!)
-  showAlert(message: string, type: string): void {
-    console.log(message, type);
+  //show messages of error
+  showMessageDialog(strMessage: string, strType: string): void {
+    var dataDialog: DialogData = {message: strMessage, type: strType };
+    var config = {
+      data: dataDialog,
+      width: '250px'
+    }
+
+    this.dialogMap.open(DialogComponent, config);       
   }
 }

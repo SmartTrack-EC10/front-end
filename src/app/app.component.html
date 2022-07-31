@@ -3,18 +3,22 @@
     <div class="logo">
       <img class="image" src="../assets/images/logo.png" alt="" />
     </div>
-    <button class="nav-button"  routerLink="/">Home</button>
+    <button class="nav-button" routerLink="/">Home</button>
     <button class="nav-button" (click)="toogleCollapsible()">Cadastrar</button>
     <div class="collapsible" *ngIf="showCollapsible">
-      <button class="nav-button" routerLink="/cadastrar/operador">Operador</button>
+      <button class="nav-button" routerLink="/cadastrar/operador">
+        Operador
+      </button>
       <button class="nav-button" routerLink="/cadastrar/trator">Trator</button>
       <button class="nav-button" routerLink="/cadastrar/talhao">Talhão</button>
-      <button class="nav-button" routerLink="/cadastrar/smart-rules">Smart Rules</button>
+      <button class="nav-button" routerLink="/cadastrar/smart-rules">
+        Smart Rules
+      </button>
     </div>
     <button class="nav-button">Dashboard</button>
     <button class="nav-button" routerLink="/notificacoes">Notificações</button>
-    <button class="nav-button">Sobre</button>
-    <button class="nav-button">Suporte</button>
+    <button class="nav-button" routerLink="/aboutus">Sobre</button>
+    <button class="nav-button" routerLink="/contactus">Suporte</button>
   </div>
   <div class="content">
     <div class="top-bar"></div>

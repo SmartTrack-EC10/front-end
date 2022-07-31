@@ -28,8 +28,10 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSelectModule } from '@angular/material/select';
 import { PlotComponent } from './pages/register/plot/plot.component';
 
-
 import { SmartRules } from './pages/register/smart-rules/smart-rules.module'
+import { AboutComponent } from './pages/about/about.component';
+import { HelpComponent } from './pages/help/help.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,10 @@ import { SmartRules } from './pages/register/smart-rules/smart-rules.module'
     TractorComponent,
     DialogLGPDDialog,
     NotificationsComponent,
-    PlotComponent
+    PlotComponent,
+    AboutComponent,
+    HelpComponent,
+    DashboardComponent,
   ],
   imports: [
     FormsModule,

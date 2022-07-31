@@ -1,10 +1,11 @@
 <mat-card class="card">   
     <mat-card-content>
-        <div class="col-md-12" id=Titulo style="display: flex;">
-            <div class="col-md-12">
-                <p style="text-align: center; padding: 10px; font-weight: bold; font-size: large;">
-                    List of SmartRules
-                </p>
+        <div class="col-md-12" id=titleDiv style="display: flex;">
+            <div class="col-md-6 SmartRulesTitle">
+                <p> List of SmartRules </p>
+            </div>
+            <div class="col-md-6 SmartRulesButton">
+                <button mat-flat-button class="loadDevices" color="primary" (click)="loadMoreSubscriptions()" [disabled]="!isValidSRList"> Load More </button>
             </div>
         </div>
         <div id="table">
@@ -18,10 +19,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let smartRule of smartRulesList">                        
+                    <tr *ngFor="let smartRule of smartRulesList, let i = index">                        
                         <td class="td_description">{{ smartRule.description }}</td>
                         <td class="td_status">{{ smartRule.status }}</td>
-                        <td class="td_expired">{{ smartRule.expired }}</td>
+                        <td class="td_expired">{{ smartRule.expires ? smartRule.expires : '-'}}</td>
                         <td class="td_options">...</td>
                     </tr>
                 </tbody>

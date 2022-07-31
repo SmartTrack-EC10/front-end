@@ -22,11 +22,8 @@ export class DialogComponent {
 
   dialogType: string[] = ["Information", "Warning", "Error"];
 
-  constructor(public dialogRef: MatDialogRef<DialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) {  
-
-    this.dialogRef.updateSize("250px", "400px");
-      
+  constructor(public dialogRef: MatDialogRef<DialogComponent>, @Inject(MAT_DIALOG_DATA) public data: DialogData) { 
+    this.dialogRef.updateSize("250px", "400px");   
     this.showMessageDialog(data.message, data.type);
   }
 

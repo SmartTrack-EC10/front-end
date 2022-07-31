@@ -1,0 +1,12 @@
+
+    <h3>Geographical Queries</h3>
+    <p>Geographical queries are specified using the following parameters:</p>
+    <p><strong>georel</strong> is intended to specify a spatial relationship (a predicate) between matching entities and a reference shape (geometry). It is composed of a token list separated by ';'. The first token is the relationship name, the rest of the tokens (if any) are modifiers which provide more information about the relationship. The following values are recognized:</p>
+    <ul>
+        <li><strong>georel=coveredBy</strong>. Denotes that matching entities are those that exist entirely within the reference geometry. When resolving a query of this type, the border of the shape must be considered to be part of the shape.</li>
+        <li><strong>georel=intersects</strong>. Denotes that matching entities are those intersecting with the reference geometry.</li>
+        <li><strong>georel=disjoint</strong>. Denotes that matching entities are those not intersecting with the reference geometry.</li>
+    </ul>
+<div style="align-content: flex-end;">
+    <button mat-button (click)="onClose()"> Close </button>
+</div>

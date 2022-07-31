@@ -13,6 +13,7 @@ import { SmartRuleApiService } from 'src/app/core/services/smart-rules-service/s
 export class AllSmartRulesComponent implements OnInit  {
   displayedColumns: string[] = ["description", "status", "expired"]
   smartRulesList: any[] = []
+  isValidSRList: boolean = true;
 
   constructor(
     private fb: FormBuilder,
@@ -24,13 +25,22 @@ export class AllSmartRulesComponent implements OnInit  {
   }
 
   ngOnInit(): void {
-    this.getSubiscriptionList();
+    this.getSubiscriptionList(0);
   }
 
-  async getSubiscriptionList() {
-    this.service.getSmartRules()
-      .subscribe(data => {
-        this.smartRulesList = data;
-      });
+  //get a list of SmartRules
+  getSubiscriptionList(offset: number) {
+    var listServer: any[] = [];
+    this.service.getSmartRules(offset).subscribe(data => {
+        listServer = data;
+        if(listServer.length == 0 ) { this.isValidSRList = false } //disable butons if all data is already downloaded
+        else { listServer.forEach(smartRule => { this.smartRulesList.push(smartRule) }); }
+    });
+  }
+
+  //load more SmartRules from Server
+  loadMoreSubscriptions() {
+    var smartRules = this.smartRulesList.length;
+    this.getSubiscriptionList(smartRules);
   }
 }

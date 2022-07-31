@@ -6,31 +6,33 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root',
 })
-export class SmartRuleApiService {
-  urlBroker = environment.apiBroker + '/subscriptions';
+export class AgriFarmApiService {
+  url = environment.apiIoT + '/devices';
+  urlBroker = environment.apiBroker + '/entities';
   constructor(private http: HttpClient) {}
 
-  getSmartRules(offset: number): Observable<any> {
+  getFarms(offset: number): Observable<any> {
     let httpHeaders = new HttpHeaders({
       'fiware-service': 'helixiot',
-      'fiware-servicepath': '/',
+      'fiware-servicepath': '/'
     });
 
-    let httpParams = new HttpParams().set('options', 'keyValues').set('offset', offset).set('limit', 5);
+    let httpParams = new HttpParams().set('type', 'AgriFarm').set('options', 'keyValues').set('offset', offset).set('limit', 5);
     
     let options = { headers: httpHeaders, params: httpParams };
 
     return this.http.get<any>(this.urlBroker, options);
   }
 
-  saveContainer(rule: any): Observable<any> {
+  savefarms(farms: any): Observable<any> {
     let httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
       'fiware-service': 'helixiot',
-      'fiware-servicepath': '/'
+      'fiware-servicepath': '/',
+      'Access-Control-Allow-Origin': '*'
     });
     let options = { headers: httpHeaders };
 
-    return this.http.post<any>(this.urlBroker, rule, options);
+    return this.http.post<any>(this.url, farms, options);
   }
 }

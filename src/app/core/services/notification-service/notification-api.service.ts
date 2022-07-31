@@ -7,10 +7,10 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class NotificationApiService {
-  url = environment.apiBroker + '/notifications';
+  urlBroker = environment.apiBroker + '/notifications';
   constructor(private http: HttpClient) {}
 
   getNotification(): Observable<any[]> {
-    return this.http.get<any[]>(this.url)
+    return this.http.get<any[]>(this.urlBroker)
   }
 }

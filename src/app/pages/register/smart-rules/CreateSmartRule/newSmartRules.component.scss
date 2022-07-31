@@ -19,6 +19,11 @@
     width: -webkit-fill-available;    
 }
 
+.mat-label {
+    text-align: center;
+    font-weight: bold; 
+}
+
 .mat-grid-tile-content {
     display: inline !important;
     padding: 0 10px !important;
@@ -36,6 +41,10 @@
     li {
         padding: 0 14px 5px !important;
     }
+}
+
+.checkBoxDevices:nth-child(2n+1) {
+    background-color: rgb(169,169,169,0.2);
 }
 
 .mat-radio-group {
