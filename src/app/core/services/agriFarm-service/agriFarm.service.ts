@@ -6,25 +6,25 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root',
 })
-export class TruckApiService {
+export class AgriFarmApiService {
   url = environment.apiIoT + '/devices';
   urlBroker = environment.apiBroker + '/entities';
   constructor(private http: HttpClient) {}
 
-  getTrucks(offset: number): Observable<any> {
+  getFarms(offset: number): Observable<any> {
     let httpHeaders = new HttpHeaders({
       'fiware-service': 'helixiot',
       'fiware-servicepath': '/'
     });
 
-    let httpParams = new HttpParams().set('type', 'Truck').set('options', 'keyValues').set('offset', offset).set('limit', 5);
-
+    let httpParams = new HttpParams().set('type', 'AgriFarm').set('options', 'keyValues').set('offset', offset).set('limit', 5);
+    
     let options = { headers: httpHeaders, params: httpParams };
 
     return this.http.get<any>(this.urlBroker, options);
   }
 
-  saveTruck(truck: any): Observable<any> {
+  savefarms(farms: any): Observable<any> {
     let httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
       'fiware-service': 'helixiot',
@@ -33,6 +33,6 @@ export class TruckApiService {
     });
     let options = { headers: httpHeaders };
 
-    return this.http.post<any>(this.url, truck, options);
+    return this.http.post<any>(this.url, farms, options);
   }
 }

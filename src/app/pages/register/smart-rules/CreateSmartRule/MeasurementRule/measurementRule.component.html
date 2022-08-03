@@ -1,0 +1,75 @@
+<mat-expansion-panel [expanded]="selectedRuleType === 'Measurements'" disabled>
+  <mat-label>Rules:</mat-label><br />
+  <div id="table">
+    <button
+      mat-flat-button
+      class="ruleButton"
+      color="primary"
+      (click)="addMeasurement()"
+    >
+      Add
+    </button>
+    <div>
+      <div class="form">
+        <div class="type title" id="tr_type">Type</div>
+        <div class="operation title" id="tr_operation">Operation</div>
+        <div class="value title" id="tr_value">Value</div>
+        <div class="delete title" [hidden]="isValidMeasurement">Delete</div>
+      </div>
+      <div class="form" *ngFor="let me of measurementsStructList; let i = index">
+        <mat-form-field class="type" appearance="fill">
+          <mat-select [(ngModel)]="measurementsStructList[i].field">
+            <mat-option
+              *ngFor="let attrs of attributes"
+              [value]="attrs.value"
+              [disabled]="isValidMeasurement"
+            >
+              {{ attrs.label }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="operation" appearance="fill">
+          <mat-select [(ngModel)]="measurementsStructList[i].operation">
+            <mat-option
+              *ngFor="let op of operations"
+              [value]="op.value"
+              [disabled]="isValidMeasurement"
+            >
+              {{ op.value }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <input
+          class="value"
+            matInput
+            type="text"
+            [(ngModel)]="measurementsStructList[i].value"
+            [disabled]="isValidMeasurement"
+            placeholder="Decimals valeus or object ID"
+          />
+        </mat-form-field>
+        <div class="delete" [hidden]="isValidMeasurement">
+          <mat-icon (click)="removeMeasurement(i)">delete</mat-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button
+    mat-flat-button
+    color="primary"
+    (click)="onSave()"
+    [disabled]="isValidMeasurement"
+  >
+    Save
+  </button>
+  <button
+    mat-flat-button
+    color="primary"
+    (click)="onUpdate()"
+    [disabled]="!isValidMeasurement"
+  >
+    Update
+  </button>
+</mat-expansion-panel>

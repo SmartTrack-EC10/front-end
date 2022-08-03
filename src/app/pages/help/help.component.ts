@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import 'c:/src/smart-track/src/assets/smtp.js';
+//import 'c:/src/smart-track/src/assets/smtp.js';
 declare let Email: any;
 
 @Component({

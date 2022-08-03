@@ -1,0 +1,76 @@
+.card {
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;    
+    .form {
+        display: flex;
+        flex-direction: column;
+        padding: 10px 0;
+    }
+}
+
+.listTrucks {
+    width: -webkit-fill-available;
+    display: flex;
+    flex-direction: column;    
+    padding: 10px 0;    
+}
+
+.mat-grid-tile {
+    width: -webkit-fill-available;    
+}
+
+.mat-label {
+    text-align: center;
+    font-weight: bold; 
+}
+
+.mat-grid-tile-content {
+    display: inline !important;
+    padding: 0 10px !important;
+}
+
+::ng-deep .mat-expansion-panel-body{
+    padding: 0 0 16px !important;
+}
+
+.mat-expansion-panel.mat-expanded {
+    background-color: rgba(0, 0, 0, 0.04);
+    padding: .75em 0.75em 0 0.75em;
+    margin-bottom: 1.34375em;
+
+    li {
+        padding: 0 14px 5px !important;
+    }
+}
+
+.checkBoxDevices:nth-child(2n+1) {
+    background-color: rgb(169,169,169,0.2);
+}
+
+.mat-radio-group {
+    background-color: rgba(0, 0, 0, 0.04);
+    padding: .75em 0.75em 0 0.75em;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    margin-bottom: 1.34375em;
+}
+
+.mat-radio-button {
+    margin-left: 16px;
+    margin-top: 5px;
+    margin-bottom: 1.34375em;
+}
+
+.devicesButtons {
+    width: -webkit-fill-available;
+    padding: 10px;
+
+    button {
+        margin: 0 10px;
+    }
+}
+
+.overflow{
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}

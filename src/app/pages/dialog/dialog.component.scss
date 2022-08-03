@@ -1,0 +1,35 @@
+.dialogIcons {
+    display: inline-block;
+    text-align: center;
+    width: 90%;
+    margin: 10px;
+}
+
+.fa-circle-question {
+    color: cyan;
+    font-size: 100px;
+}
+
+.fa-circli-xmark {
+    color: red;
+    font-size: 100px;
+}
+
+.fa-circli-exclamation {
+    color: orange;
+    font-size: 100px;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 18px;
+    margin: 10px;
+    text-align: center;
+}
+
+.message {
+    font-size: 16px;
+    margin: 10px;
+    text-align: justify;
+    word-break: normal;
+}

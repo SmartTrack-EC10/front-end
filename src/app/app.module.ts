@@ -24,10 +24,11 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NotificationsComponent } from './pages/notifications/notifications.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
-import {MatTableModule} from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
+import { MatSelectModule } from '@angular/material/select';
 import { PlotComponent } from './pages/register/plot/plot.component';
-import { SmartRulesComponent } from './pages/register/smart-rules/smart-rules.component';
-import {MatSelectModule} from '@angular/material/select';
+
+import { SmartRules } from './pages/register/smart-rules/smart-rules.module'
 import { AboutComponent } from './pages/about/about.component';
 import { HelpComponent } from './pages/help/help.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
@@ -42,7 +43,6 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     DialogLGPDDialog,
     NotificationsComponent,
     PlotComponent,
-    SmartRulesComponent,
     AboutComponent,
     HelpComponent,
     DashboardComponent,
@@ -65,7 +65,8 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     MatProgressSpinnerModule,
     NgxChartsModule,
     MatTableModule,
-    MatSelectModule
+    MatSelectModule,
+    SmartRules
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent],

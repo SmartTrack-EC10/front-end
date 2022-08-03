@@ -1,0 +1,12 @@
+<div class="dialogIcons">
+  <mat-icon *ngIf="selectedType == 'Information'">help</mat-icon>
+  <mat-icon *ngIf="selectedType == 'Error'">cancel</mat-icon>
+  <mat-icon *ngIf="selectedType == 'Warning'">error</mat-icon>
+</div>
+<p class="title">Message</p>
+<div mat-dialog-content>
+  <p class="message">{{ selectedMessage }}</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-flat-button color="primary" (click)="onClose()">Close</button>
+</div>
