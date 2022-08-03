@@ -68,3 +68,9 @@
         margin: 0 10px;
     }
 }
+
+.overflow{
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
