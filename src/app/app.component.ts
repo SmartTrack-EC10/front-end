@@ -8,9 +8,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
   showCollapsible:boolean = false;
 
-  title = 'st';
+  title:string = '';
+
   toogleCollapsible(){
     this.showCollapsible = !this.showCollapsible;
-
   }
 }
