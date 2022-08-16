@@ -16,7 +16,7 @@
         </div>
         <div class="SelectedGeofence">
             <input matInput type="text" placeholder="Selected Geofence" disabled /> 
-            <fa-icon class="fa-circle-question" [icon]="faCircleQuestion" (click)="openGeorelDescription()"></fa-icon>
+            <mat-icon  (click)="openGeorelDescription()" >help</mat-icon>
         </div>
         <div class="Buttons">
             <button mat-flat-button color="primary" (click)="openPopupGeonfece()" [disabled]="correctObjReturn"> Geofence </button>  

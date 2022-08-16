@@ -1,1 +1,1 @@
-# smart-track
+<h1 align="center">Smart Track</h1>

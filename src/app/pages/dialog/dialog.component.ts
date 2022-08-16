@@ -1,6 +1,5 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { faCircleExclamation, faCircleQuestion, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 
 export interface DialogData {
   message: string;
@@ -13,9 +12,6 @@ export interface DialogData {
 })
 
 export class DialogComponent {
-  faCircleExclamation = faCircleExclamation;
-  faCircleQuestion = faCircleQuestion;
-  faCircleXmark = faCircleXmark;
 
   selectedType: string = "";
   selectedMessage: string = "";

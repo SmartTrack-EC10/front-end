@@ -5,7 +5,6 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { DialogComponent, DialogData } from "../../../../dialog/dialog.component"
 import { AgriFarmApiService } from "src/app/core/services/agriFarm-service/agriFarm.service"
 import { DialogMapPointsComponent } from './dialogMapPoints/dialogMapPoints.component'
-import { faCircleQuestion } from '@fortawesome/free-solid-svg-icons';
 
 import * as L from 'leaflet';
 
@@ -28,7 +27,6 @@ const iconDefault = L.icon({
 })
 
 export class MapRuleComponent {
-  faCircleQuestion = faCircleQuestion;
 
   @Input() selectedRuleType: string = "";  
   @Input() selectedEntitiesType: string = ""; 

@@ -1,35 +1,60 @@
-<mat-card class="card">   
-    <mat-card-content>
-        <div class="col-md-12" id=titleDiv style="display: flex;">
-            <div class="col-md-6 SmartRulesTitle">
-                <p> List of SmartRules </p>
-            </div>
-            <div class="col-md-6 SmartRulesButton">
-                <button mat-flat-button class="loadDevices" color="primary" (click)="loadMoreSubscriptions()" [disabled]="!isValidSRList"> Load More </button>
-            </div>
-        </div>
-        <div id="table">
-            <table width="100%" class="table table-striped" id="dataTable">
-                <thead>
-                    <tr>
-                        <th id="tr_id">Description</th>
-                        <th id="tr_nome">Status</th>
-                        <th id="tr_tipo">Expired</th>
-                        <th id="td_options">Options</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let smartRule of smartRulesList, let i = index">                        
-                        <td class="td_description">{{ smartRule.description }}</td>
-                        <td class="td_status">{{ smartRule.status }}</td>
-                        <td class="td_expired">{{ smartRule.expires ? smartRule.expires : '-'}}</td>
-                        <td class="td_options">...</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </mat-card-content>
+<mat-card class="card">
+  <mat-card-content>
+    <div class="col-md-12" id="titleDiv" style="display: flex">
+      <div class="col-md-6 SmartRulesTitle">
+        <p>List of SmartRules</p>
+      </div>
+      <div class="col-md-6 SmartRulesButton">
+        <button
+          mat-flat-button
+          class="loadDevices"
+          color="primary"
+          (click)="loadMoreSubscriptions()"
+          [disabled]="!isValidSRList"
+        >
+          Load More
+        </button>
+      </div>
+    </div>
+    <div id="table">
+        <table #table mat-table [dataSource]="dataSource" class="table">
+            <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+    
+            <!-- Position Column -->
+            <ng-container matColumnDef="description">
+              <th mat-header-cell *matHeaderCellDef>Description</th>
+              <td mat-cell *matCellDef="let element">{{ element.description }}</td>
+            </ng-container>
+    
+            <!-- Name Column -->
+            <ng-container matColumnDef="status">
+              <th mat-header-cell *matHeaderCellDef>Status</th>
+              <td mat-cell *matCellDef="let element">{{ element.status }}</td>
+            </ng-container>
+    
+            <!-- Weight Column -->
+            <ng-container matColumnDef="expires">
+              <th mat-header-cell *matHeaderCellDef>Expired</th>
+              <td mat-cell *matCellDef="let element">{{ element.expires }}</td>
+            </ng-container>
+    
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="options">
+              <th mat-header-cell *matHeaderCellDef>Options</th>
+              <td mat-cell *matCellDef="let element">...</td>
+            </ng-container>
+    
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr
+              style="cursor: pointer"
+              mat-row
+              *matRowDef="let row; columns: displayedColumns"
+            ></tr>
+          </table>
+    </div>
+  </mat-card-content>
 </mat-card>
 <ngx-spinner [fullScreen]="true">
-    <mat-spinner></mat-spinner>
+  <mat-spinner></mat-spinner>
 </ngx-spinner>

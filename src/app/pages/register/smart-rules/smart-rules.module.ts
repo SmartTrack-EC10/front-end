@@ -17,7 +17,6 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTableModule } from '@angular/material/table';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -50,7 +49,6 @@ import { DialogMapPointsComponent } from './CreateSmartRule/MapRule/dialogMapPoi
         MatExpansionModule,
         MatGridListModule,
 
-        FontAwesomeModule,
 
         FormsModule, ReactiveFormsModule,
         BrowserModule

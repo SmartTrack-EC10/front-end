@@ -8,15 +8,6 @@
     }
 }
 
-td {
-    text-align: center; 
-}
-
-td.td_type, td.td_operation, td.td_value {
-    background-color: white;
-    margin: 10px;
-    border: 1px solid rgba(0, 0, 0, 0.4);
-}
 
 .ng-fa-icon {
     color: red;
@@ -57,3 +48,38 @@ button {
 tr:nth-child(2n) {
     background-color: rgb(169,169,169,0.2);
 }
+
+.form{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+
+    .type{
+        width: 170px;
+        margin-right: 8px;
+    }
+
+    .operation{
+        width: 60px;
+        margin-right: 8px;
+    }
+
+    .value{
+        width: 200px;
+        margin-right: 8px;
+    }
+
+    .delete{
+        width: 40px;
+        height: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .title{
+        font-weight: bold;
+    }
+}
+

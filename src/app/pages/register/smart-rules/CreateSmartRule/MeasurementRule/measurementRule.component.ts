@@ -4,8 +4,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent, DialogData } from 'src/app/pages/dialog/dialog.component'
 import { MeasurementsStruct } from "../newSmartRules.component"
 
-import { faDeleteLeft } from '@fortawesome/free-solid-svg-icons';
-
 export interface Attributes { value: string, label: string }
 export interface Operations { value: string }
 
@@ -16,7 +14,6 @@ export interface Operations { value: string }
 })
 
 export class MeasurementRuleComponent implements OnInit {
-  faDeleteLeft = faDeleteLeft;
 
   @Input() selectedRuleType: String = "";
   @Output() meStructSend = new EventEmitter<MeasurementsStruct[]>();

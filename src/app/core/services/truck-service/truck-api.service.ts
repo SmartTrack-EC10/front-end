@@ -19,7 +19,7 @@ export class TruckApiService {
 
     let httpParams = new HttpParams().set('type', 'Truck').set('options', 'keyValues').set('offset', offset).set('limit', 5);
 
-    let options = { headers: httpHeaders, params: httpParams };
+    let options = { headers: httpHeaders, params: httpParams};
 
     return this.http.get<any>(this.urlBroker, options);
   }
@@ -28,11 +28,11 @@ export class TruckApiService {
     let httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
       'fiware-service': 'helixiot',
-      'fiware-servicepath': '/',
-      'Access-Control-Allow-Origin': '*'
+      'fiware-servicepath': '/'
     });
     let options = { headers: httpHeaders };
 
+    console.log(truck)
     return this.http.post<any>(this.url, truck, options);
   }
 }

@@ -3,22 +3,36 @@
     <div class="logo">
       <img class="image" src="../assets/images/logo.png" alt="" />
     </div>
-    <button class="nav-button" routerLink="/">Home</button>
-    <button class="nav-button" (click)="toogleCollapsible()">Cadastrar</button>
+    <button class="nav-button" routerLink="/">
+      <mat-icon>home</mat-icon>Home
+    </button>
+    <button class="nav-button" (click)="toogleCollapsible()">
+      <mat-icon class="icon">edit</mat-icon>Cadastrar
+    </button>
     <div class="collapsible" *ngIf="showCollapsible">
       <button class="nav-button" routerLink="/cadastrar/operador">
-        Operador
+        <mat-icon class="icon">contact_page</mat-icon>Operador
       </button>
-      <button class="nav-button" routerLink="/cadastrar/trator">Trator</button>
-      <button class="nav-button" routerLink="/cadastrar/talhao">Talhão</button>
+      <button class="nav-button" routerLink="/cadastrar/trator">
+        <mat-icon class="icon">agriculture</mat-icon>Trator
+      </button>
+      <button class="nav-button" routerLink="/cadastrar/talhao">
+        <mat-icon class="icon">eco</mat-icon>Talhão
+      </button>
       <button class="nav-button" routerLink="/cadastrar/smart-rules">
-        Smart Rules
+        <mat-icon class="icon">folder</mat-icon>Smart Rules
       </button>
     </div>
-    <button class="nav-button">Dashboard</button>
-    <button class="nav-button" routerLink="/notificacoes">Notificações</button>
-    <button class="nav-button" routerLink="/aboutus">Sobre</button>
-    <button class="nav-button" routerLink="/contactus">Suporte</button>
+    <button class="nav-button"><mat-icon>grid_view</mat-icon>Dashboard</button>
+    <button class="nav-button" routerLink="/notificacoes">
+      <mat-icon class="icon">notification_important</mat-icon>Notificações
+    </button>
+    <button class="nav-button" routerLink="/aboutus">
+      <mat-icon class="icon">question_mark</mat-icon>Sobre
+    </button>
+    <button class="nav-button" routerLink="/contactus">
+      <mat-icon class="icon">forum</mat-icon>Suporte
+    </button>
   </div>
   <div class="content">
     <div class="top-bar"></div>
