@@ -28,7 +28,12 @@ export class TractorComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+    this.service.getTrucks(0).subscribe(data => {
+      console.log(data);
+    })
+  }
 
   formatObject(tractor: any) {
     const id = uuid.v4();
