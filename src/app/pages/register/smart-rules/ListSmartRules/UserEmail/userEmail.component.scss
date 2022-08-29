@@ -1,0 +1,42 @@
+.card {
+  width: -webkit-fill-available;
+
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.SmartRulesTitle {
+  padding: 10px;
+  font-weight: bold;
+  font-size: large;
+}
+
+.SmartRulesButton {
+  padding: 0 10px;
+  font-weight: bold;
+  font-size: large;
+}
+.table {
+  width: 100%;
+}
+th,
+td.td_status,
+td.td_expired,
+td.td_options {
+  text-align: center;
+}
+
+tr:nth-child(2n) {
+  background-color: rgb(169, 169, 169, 0.2);
+}
+
+#Columns {
+  padding-top: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+  justify-content: space-between;
+  border: black 2px solid;
+}

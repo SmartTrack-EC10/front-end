@@ -1,7 +1,9 @@
 <mat-card class="card">
     <mat-card-content>
-        <mat-grid-list cols="2" class="grid">
-            <mat-grid-tile class="contentTile">       
+        <mat-grid-list [cols]="(selectedPattern === 'Devices' && selectedEntitiesType !== '') || selectedRuleType !== '' ? 2 : 1"
+            ro="(selectedPattern !== '' && selectedEntitiesType !== '') || selectedRuleType !== '' ? 2 : 1" 
+            rowHeight="1:0.85">
+            <mat-grid-tile>
                 <form class="form" [formGroup]="pageForm">
                     <mat-form-field class="example-form-field" appearance="fill">
                         <mat-label>Descrição:</mat-label>
@@ -19,12 +21,13 @@
                     </mat-radio-group>
         
                     <mat-radio-group [(ngModel)]="selectedPattern" formControlName="isPattern">
-                        <mat-label>Truck Type:</mat-label><br>  
+                        <mat-label>Object Type:</mat-label><br> 
                         <mat-radio-button class="example-radio-button" *ngFor="let pattern of entitiesIsPattern" [value]="pattern"> {{pattern}} </mat-radio-button>
                     </mat-radio-group>
 
                     <mat-radio-group [(ngModel)]="selectedRuleType" formControlName="isRuleType">
                         <mat-label>Rule Type:</mat-label><br>  
+                        <mat-radio-button class="example-radio-button" [value]="''"> None </mat-radio-button>
                         <mat-radio-button class="example-radio-button" [value]="'Measurements'"> Measurements </mat-radio-button>
                         <mat-radio-button *ngIf="selectedEntitiesType === 'Truck'" class="example-radio-button" [value]="'Geofence'"> Geofence </mat-radio-button>
                     </mat-radio-group>
@@ -39,7 +42,7 @@
                     <button mat-flat-button color="primary" (click)="saveRule()">Salvar</button>
                 </form>
             </mat-grid-tile> 
-            <mat-grid-tile class=" overflow">
+            <mat-grid-tile>
                 <div class="listTrucks">
                     <mat-expansion-panel [expanded]="selectedPattern === 'Devices' && selectedEntitiesType === 'Person'" disabled>
                         <mat-label>Person: </mat-label> 

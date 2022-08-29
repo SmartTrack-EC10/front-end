@@ -28,6 +28,7 @@ import { MapRuleComponent } from './CreateSmartRule/MapRule/mapRule.component'
 import { MeasurementRuleComponent } from './CreateSmartRule/MeasurementRule/measurementRule.component'
 import { DialogComponent } from '../../dialog/dialog.component'
 import { DialogMapPointsComponent } from './CreateSmartRule/MapRule/dialogMapPoints/dialogMapPoints.component'
+import { UserEmailComponent } from './ListSmartRules/UserEmail/userEmail.component'
 
 @NgModule({
     imports: [
@@ -59,7 +60,8 @@ import { DialogMapPointsComponent } from './CreateSmartRule/MapRule/dialogMapPoi
         MapRuleComponent,
         MeasurementRuleComponent, 
         DialogComponent,
-        DialogMapPointsComponent]
+        DialogMapPointsComponent,
+        UserEmailComponent]
 })
 
 export class SmartRules {}

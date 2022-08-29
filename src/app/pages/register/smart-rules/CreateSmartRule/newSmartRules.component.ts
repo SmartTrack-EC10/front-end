@@ -27,6 +27,8 @@ export interface GeofenceCondition { attrs: string[], expression: { georel: stri
 export class NewSmartRulesComponent implements OnInit {
   pageForm: FormGroup;
 
+  gridSize: number = 1;
+
   entitiesTypes: string[] = ['Person', 'Truck', 'AgriFarm', 'AgriParcel'];
   entitiesIsPattern: string[] = ['All', 'Devices'];
 

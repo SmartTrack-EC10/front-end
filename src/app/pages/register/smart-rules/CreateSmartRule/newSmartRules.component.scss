@@ -1,6 +1,7 @@
 .card {
     width: -webkit-fill-available;
-    height: -webkit-fill-available;    
+    height: -webkit-fill-available;
+
     .form {
         display: flex;
         flex-direction: column;
@@ -15,18 +16,20 @@
     padding: 10px 0;    
 }
 
-.mat-grid-tile {
-    width: -webkit-fill-available;    
-}
-
 .mat-label {
     text-align: center;
     font-weight: bold; 
 }
 
-.mat-grid-tile-content {
-    display: inline !important;
+::ng-deep mat-grid-list.mat-grid-list {
+    padding-bottom: calc(1 * ((45% - 0px)) + 0px + 1px) !important; 
+}
+
+::ng-deep div.mat-grid-tile-content {    
+    display: block !important;
     padding: 0 10px !important;
+    padding-bottom: calc(0* ((40% - 0px)) + 0px + 1px) !important;
+    overflow: auto !important;
 }
 
 ::ng-deep .mat-expansion-panel-body{
