@@ -7,6 +7,17 @@ import * as L from 'leaflet';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements AfterViewInit {
+  battery: any[] = [{
+    "name": "Bateria",
+    "value": 75.9
+  }];
+  hours: any[] = [{
+    "name": "Horas",
+    "value": 27.5
+  }];
+
+  cardColor: string = '#fff';
+
   private map: any;
 
   private initMap(): void {
@@ -41,12 +52,9 @@ export class HomeComponent implements AfterViewInit {
 
     L.polygon(latlngs, { color: 'red' }).addTo(this.map).bindPopup('FTT1');
 
-    // this.map.on('click', function(e: { latlng: { lat: string; lng: string; }; }) {
-    //   console.log("Lat, Lon : " + e.latlng.lat + ", " + e.latlng.lng)
-    // });
-
   }
-  constructor() {}
+  constructor() {
+  }
   ngAfterViewInit(): void {
     this.initMap();
   }
