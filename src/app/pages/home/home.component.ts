@@ -1,4 +1,5 @@
 import { AfterViewInit, Component } from '@angular/core';
+import { Color, ScaleType } from '@swimlane/ngx-charts';
 import * as L from 'leaflet';
 
 @Component({
@@ -15,6 +16,14 @@ export class HomeComponent implements AfterViewInit {
     "name": "Horas",
     "value": 27.5
   }];
+
+  colorScheme: Color = {
+    name: 'myScheme',
+    selectable: true,
+    group: ScaleType.Ordinal,
+    domain: ['#48ffd5'],
+  };
+
 
   cardColor: string = '#fff';
 
@@ -50,7 +59,7 @@ export class HomeComponent implements AfterViewInit {
       .addTo(this.map)
       .bindPopup('FTT');
 
-    L.polygon(latlngs, { color: 'red' }).addTo(this.map).bindPopup('FTT1');
+    L.polygon(latlngs, { color: '#48ffd5' }).addTo(this.map).bindPopup('FTT1');
 
   }
   constructor() {

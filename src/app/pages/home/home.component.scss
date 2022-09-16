@@ -49,9 +49,16 @@
 }
 
 .card-table{
-  height: 712px;
+  height: 140px;
   width: 620px;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.man{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-height: 744px;
 }
