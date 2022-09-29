@@ -1,0 +1,13 @@
+.card-table {
+    height: 140px;
+    width: 620px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.add-button {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+}

@@ -32,6 +32,7 @@ import { SmartRules } from './pages/register/smart-rules/smart-rules.module'
 import { AboutComponent } from './pages/about/about.component';
 import { HelpComponent } from './pages/help/help.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { MaintenanceCardComponent } from './components/maintenance-card/maintenance-card.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     AboutComponent,
     HelpComponent,
     DashboardComponent,
+    MaintenanceCardComponent,
   ],
   imports: [
     FormsModule,

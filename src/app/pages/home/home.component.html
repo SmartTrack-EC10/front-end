@@ -30,37 +30,10 @@
     </mat-card-content>
   </mat-card>
   <div class="man">
-    <mat-card class="card-table">
-      <mat-card-header>
-        <mat-card-title>Manutenção Prevista</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-
-      </mat-card-content>
-    </mat-card>
-    <mat-card class="card-table">
-      <mat-card-header>
-        <mat-card-title>Manutenção Realizada</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-
-      </mat-card-content>
-    </mat-card>
-    <mat-card class="card-table">
-      <mat-card-header>
-        <mat-card-title>Manutenção Indicada</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-
-      </mat-card-content>
-    </mat-card>
-    <mat-card class="card-table">
-      <mat-card-header>
-        <mat-card-title>Manutenção Atrasada</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-
-      </mat-card-content>
-    </mat-card>
+    <app-maintenance-card></app-maintenance-card>
+    <app-maintenance-card></app-maintenance-card>
+    <app-maintenance-card></app-maintenance-card>
+    <app-maintenance-card></app-maintenance-card>
   </div>
 </div>
+<ngx-spinner [fullScreen] = "true"><mat-spinner></mat-spinner></ngx-spinner>
