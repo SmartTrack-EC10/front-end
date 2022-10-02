@@ -7,13 +7,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  showCollapsible:boolean = false;
+  showCollapsible: boolean = false;
 
-  constructor(private router: Router){
+  constructor(private router: Router) {
 
   }
 
   activatedRoute = '';
+  route = '';
 
   activateRoute(activatedRoute: string) {
     this.activatedRoute = activatedRoute;
@@ -21,21 +22,23 @@ export class AppComponent {
 
   get headerTitle() {
     this.activatedRoute = this.router.url
-    console.log(this.activatedRoute)
-      if (this.activatedRoute.includes('cadastrar')) {
-        return 'Cadastro';
-      } else if (this.activatedRoute.includes('notificacoes')) {
-        return 'Notificações';
-      } else if (this.activatedRoute.includes('aboutus')) {
-        return 'Sobre';
-      } else if (this.activatedRoute.includes('contactus')) {
-        return 'Suporte';
-      } else {
-        return 'Home';
-      }
+    if (this.activatedRoute.includes('cadastrar')) {
+      return 'Cadastro';
+    } else if (this.activatedRoute.includes('notificacoes')) {
+      return 'Notificações';
+    } else if (this.activatedRoute.includes('aboutus')) {
+      return 'Sobre';
+    } else if (this.activatedRoute.includes('contactus')) {
+      return 'Suporte';
+    } else {
+      return 'Home';
     }
+  }
 
-  toogleCollapsible(){
+  get activeRoute() {
+    return this.router.url
+  }
+  toogleCollapsible() {
     this.showCollapsible = !this.showCollapsible;
   }
 }

@@ -6,7 +6,7 @@
 .side-nav {
   display: flex;
   flex-direction: column;
-  width: 235px;
+  min-width: 235px;
   background-color: #041523;
   height: 100%;
 
@@ -60,6 +60,15 @@
   .top-bar {
     min-height: 90px;
     background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .title{
+      font-size: 48px;
+      color: #041523;
+      font-weight: bold;
+      padding-left: 16px;
+    }
   }
 
   .router-content {
