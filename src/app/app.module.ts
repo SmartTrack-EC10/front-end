@@ -33,6 +33,8 @@ import { AboutComponent } from './pages/about/about.component';
 import { HelpComponent } from './pages/help/help.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { MaintenanceCardComponent } from './components/maintenance-card/maintenance-card.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -68,6 +70,8 @@ import { MaintenanceCardComponent } from './components/maintenance-card/maintena
     NgxChartsModule,
     MatTableModule,
     MatSelectModule,
+    MatPaginatorModule,
+    MatSortModule,
     SmartRules
   ],
   providers: [HttpClientModule],

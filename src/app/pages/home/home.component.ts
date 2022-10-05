@@ -64,7 +64,7 @@ export class HomeComponent implements AfterViewInit {
     }).addTo(this.map);
 
     let icon = L.icon({
-      iconUrl: '../assets/images/tractor-icon.png',
+      iconUrl: '../assets/images/logo.png',
       iconSize: [40, 38],
     });
 
