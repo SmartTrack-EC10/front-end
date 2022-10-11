@@ -35,4 +35,13 @@ export class AgriFarmApiService {
 
     return this.http.post<any>(this.url, farms, options);
   }
+
+  getFarmById(id:string):  Observable<any> {
+    let httpHeaders = new HttpHeaders({
+      'fiware-service': 'helixiot',
+      'fiware-servicepath': '/',
+    });
+    let options = { headers: httpHeaders };
+    return this.http.get<any>(this.urlBroker+'?type=AgriFarm&id='+id, options); 
+  }
 }

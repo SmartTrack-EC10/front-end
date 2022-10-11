@@ -6,6 +6,7 @@ import { NgxSpinnerService } from "ngx-spinner";
 import { finalize, map, Observable, startWith, Subject } from 'rxjs';
 import { ParcelApiService } from 'src/app/core/services/parcel-service/parcel-api.service';
 import { FormControl } from '@angular/forms';
+import { AgriFarmApiService } from 'src/app/core/services/agriFarm-service/agriFarm.service';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +19,8 @@ export class HomeComponent implements AfterViewInit {
   filteredOptions: Observable<any[]>;
   constructor(private service: TruckApiService,
     private spinner: NgxSpinnerService,
-    private parcelService: ParcelApiService) { }
+    private parcelService: ParcelApiService
+    , private farmService:AgriFarmApiService) { }
   battery: any[] = [{
     "name": "Bateria",
     "value": 0
@@ -30,6 +32,7 @@ export class HomeComponent implements AfterViewInit {
 
   lat = 0
   lng = 0
+  location = 'Fazenda'
 
   position: any[] = []
 
@@ -49,7 +52,7 @@ export class HomeComponent implements AfterViewInit {
   private initMap(): void {
     this.map = L.map('map', {
       center: [-23.740417335211276, -46.58371833281692],
-      zoom: 16,
+      zoom: 18,
     });
     L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
       attribution:
@@ -93,8 +96,10 @@ export class HomeComponent implements AfterViewInit {
           startWith(''),
           map(value => this._filter(value || '')),
         );
+        // this.location = res.
         this.data = res;
         this.getParcel(res[0].relatedParcel.value)
+        this.getFarm(res[0].relatedFarm.value)
       })
   }
 
@@ -115,6 +120,14 @@ export class HomeComponent implements AfterViewInit {
       })
   }
 
+  getFarm(id:string){
+    this.farmService.getFarmById(id)
+    .pipe(finalize(() => {
+      this.spinner.hide()
+    })).subscribe((res) => {
+      this.location = res[0].alias.value
+    })
+  }
   onRecive() {
 
   }

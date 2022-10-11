@@ -1,16 +1,16 @@
+<form class="example-form">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Trator</mat-label>
+    <input type="text" placeholder="Trator" matInput [formControl]="myControl"
+      [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option.alias.value">
+        {{option.alias.value}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
 <div class="home">
-  <form class="example-form">
-    <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Trator</mat-label>
-      <input type="text" placeholder="Trator" matInput [formControl]="myControl"
-        [matAutocomplete]="auto">
-      <mat-autocomplete #auto="matAutocomplete">
-        <mat-option *ngFor="let option of filteredOptions | async" [value]="option.alias.value">
-          {{option.alias.value}}
-        </mat-option>
-      </mat-autocomplete>
-    </mat-form-field>
-  </form>
   <div>
     <mat-card class="gauge">
       <mat-card-header>
@@ -33,6 +33,7 @@
     </mat-card>
   </div>
   <mat-card class="card">
+    <mat-card-title >{{location}}</mat-card-title>
     <mat-card-content>
       <div class="map-container">
         <div class="map-frame">
