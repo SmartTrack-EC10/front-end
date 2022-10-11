@@ -1,4 +1,16 @@
 <div class="home">
+  <form class="example-form">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Trator</mat-label>
+      <input type="text" placeholder="Trator" matInput [formControl]="myControl"
+        [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option.alias.value">
+          {{option.alias.value}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
   <div>
     <mat-card class="gauge">
       <mat-card-header>
@@ -33,4 +45,6 @@
     <app-maintenance-card></app-maintenance-card>
   </div>
 </div>
-<ngx-spinner [fullScreen] = "true"><mat-spinner></mat-spinner></ngx-spinner>
+<ngx-spinner [fullScreen]="true">
+  <mat-spinner></mat-spinner>
+</ngx-spinner>

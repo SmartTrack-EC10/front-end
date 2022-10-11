@@ -25,6 +25,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NotificationsComponent } from './pages/notifications/notifications.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { MatTableModule } from '@angular/material/table';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { MatSelectModule } from '@angular/material/select';
 import { PlotComponent } from './pages/register/plot/plot.component';
 
@@ -71,6 +72,7 @@ import { MatSortModule } from '@angular/material/sort';
     MatTableModule,
     MatSelectModule,
     MatPaginatorModule,
+    MatAutocompleteModule,
     MatSortModule,
     SmartRules
   ],
