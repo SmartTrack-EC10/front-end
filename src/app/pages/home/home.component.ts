@@ -3,7 +3,7 @@ import { Color, ScaleType } from '@swimlane/ngx-charts';
 import * as L from 'leaflet';
 import { TruckApiService } from 'src/app/core/services/truck-service/truck-api.service';
 import { NgxSpinnerService } from "ngx-spinner";
-import { finalize, map, Observable, startWith, Subject } from 'rxjs';
+import { finalize, interval, map, Observable, startWith, Subject, Subscription } from 'rxjs';
 import { ParcelApiService } from 'src/app/core/services/parcel-service/parcel-api.service';
 import { FormControl } from '@angular/forms';
 import { AgriFarmApiService } from 'src/app/core/services/agriFarm-service/agriFarm.service';
@@ -14,13 +14,14 @@ import { AgriFarmApiService } from 'src/app/core/services/agriFarm-service/agriF
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements AfterViewInit {
+  subscription: Subscription;
   myControl = new FormControl('');
   options: any[] = []
   filteredOptions: Observable<any[]>;
   constructor(private service: TruckApiService,
     private spinner: NgxSpinnerService,
     private parcelService: ParcelApiService
-    , private farmService:AgriFarmApiService) { }
+    , private farmService: AgriFarmApiService) { }
   battery: any[] = [{
     "name": "Bateria",
     "value": 0
@@ -33,6 +34,7 @@ export class HomeComponent implements AfterViewInit {
   lat = 0
   lng = 0
   location = 'Fazenda'
+  id = ''
 
   position: any[] = []
 
@@ -68,14 +70,18 @@ export class HomeComponent implements AfterViewInit {
       .addTo(this.map)
       .bindPopup('FTT');
 
-    // L.polygon(latlngs, { color: '#48ffd5' }).addTo(this.map).bindPopup('FTT1');
-
   }
   data: any[] = []
   ngOnInit(): void {
+    const source = interval(120000)
     this.spinner.show()
     this.getTrucks()
-  
+    this.subscription = source.subscribe(() => {
+      this.spinner.show()
+      this.fetchTruck(this.id)
+    });
+
+
 
   }
   _filter(value: string): any[] {
@@ -96,8 +102,8 @@ export class HomeComponent implements AfterViewInit {
           startWith(''),
           map(value => this._filter(value || '')),
         );
-        // this.location = res.
         this.data = res;
+        this.id = res[0].id
         this.getParcel(res[0].relatedParcel.value)
         this.getFarm(res[0].relatedFarm.value)
       })
@@ -114,19 +120,17 @@ export class HomeComponent implements AfterViewInit {
           console.log(parseFloat(p[0]), parseFloat(p[1]))
           return ([parseFloat(p[0]), parseFloat(p[1])])
         }))
-        // latlngs = res[0].location.value;
-        console.log(latlngs)
-        L.polygon(latlngs, { color: '#48ffd5' }).addTo(this.map).bindPopup('FTT1');
+        L.polygon(latlngs, { color: '#48ffd5' }).addTo(this.map).bindPopup(res[0].alias.value);
       })
   }
 
-  getFarm(id:string){
+  getFarm(id: string) {
     this.farmService.getFarmById(id)
-    .pipe(finalize(() => {
-      this.spinner.hide()
-    })).subscribe((res) => {
-      this.location = res[0].alias.value
-    })
+      .pipe(finalize(() => {
+        this.spinner.hide()
+      })).subscribe((res) => {
+        this.location = res[0].alias.value
+      })
   }
   onRecive() {
 
@@ -134,10 +138,8 @@ export class HomeComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     this.initMap();
-    console.log(this.data)
   }
 
-  // Update function
   update(response: any) {
     let prop = [{
       "name": "Bateria",
@@ -154,6 +156,26 @@ export class HomeComponent implements AfterViewInit {
     this.lng = cords[1]
     let newLatLng = new L.LatLng(this.lat, this.lng);
     this.marker.setLatLng(newLatLng);
+    this.marker.bindPopup(response[0].alias.value)
     this.map.panTo(newLatLng);
+  }
+  ngOnDestroy() {
+    this.subscription && this.subscription.unsubscribe();
+  }
+
+  fetchTruck(id: string) {
+    this.spinner.show()
+    this.id = id ? id : this.id
+    this.service.getTruckById(this.id)
+      .pipe(finalize(() => {
+        this.update(this.data)
+        this.spinner.hide()
+      }))
+      .subscribe((res) => {
+        this.data = res;
+
+        this.getParcel(res[0].relatedParcel.value)
+        this.getFarm(res[0].relatedFarm.value)
+      })
   }
 }

@@ -33,6 +33,15 @@ export class TruckApiService {
     return this.http.get<any[]>(this.urlBroker+'?type=Truck', options)
   }
 
+  getTruckById(id:string): Observable<any> {
+    let httpHeaders = new HttpHeaders({
+      'fiware-service': 'helixiot',
+      'fiware-servicepath': '/'
+    });
+    let options = { headers: httpHeaders};
+    return this.http.get<any[]>(this.urlBroker+'?type=Truck&id='+id, options)
+  }
+  
   saveTruck(truck: any): Observable<any> {
     let httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
