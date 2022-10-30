@@ -1,12 +1,51 @@
-<mat-card class="card">
-  <mat-card-header>
-    <mat-card-title class="title">Trator X</mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <div class="map-container">
-      <div class="map-frame">
-        <div id="map"></div>
+<form class="example-form">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Trator</mat-label>
+    <input type="text" placeholder="Trator" matInput [formControl]="myControl"
+      [matAutocomplete]="auto" >
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option.alias.value" (onSelectionChange)="fetchTruck(option.id)">
+        {{option.alias.value}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
+<div class="home">
+  <div>
+    <mat-card class="gauge">
+      <mat-card-header>
+        <mat-card-title class="title">Horas Trabalhadas</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <ngx-charts-number-card [view]="[400, 300]" [scheme]="colorScheme" [results]="hours" [cardColor]="cardColor">
+        </ngx-charts-number-card>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="gauge">
+      <mat-card-header>
+        <mat-card-title class="title">Bateria</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <ngx-charts-gauge [view]="[400, 300]" [results]="battery" [min]="0" [max]="100" [angleSpan]="360"
+          [startAngle]="0" [scheme]="colorScheme" [units]="'%'" [showAxis]="false">
+        </ngx-charts-gauge>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <mat-card class="card">
+    <mat-card-title >{{location}}</mat-card-title>
+    <mat-card-content>
+      <div class="map-container">
+        <div class="map-frame">
+          <div id="map"></div>
+        </div>
       </div>
-    </div>
-  </mat-card-content>
-</mat-card>
+    </mat-card-content>
+  </mat-card>
+  <div class="man">
+    <app-maintenance-card></app-maintenance-card>
+  </div>
+</div>
+<ngx-spinner [fullScreen]="true">
+  <mat-spinner></mat-spinner>
+</ngx-spinner>

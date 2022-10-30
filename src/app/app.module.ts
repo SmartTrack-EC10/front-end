@@ -25,6 +25,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NotificationsComponent } from './pages/notifications/notifications.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { MatTableModule } from '@angular/material/table';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { MatSelectModule } from '@angular/material/select';
 import { PlotComponent } from './pages/register/plot/plot.component';
 
@@ -32,6 +33,9 @@ import { SmartRules } from './pages/register/smart-rules/smart-rules.module'
 import { AboutComponent } from './pages/about/about.component';
 import { HelpComponent } from './pages/help/help.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { MaintenanceCardComponent } from './components/maintenance-card/maintenance-card.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -46,6 +50,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     AboutComponent,
     HelpComponent,
     DashboardComponent,
+    MaintenanceCardComponent,
   ],
   imports: [
     FormsModule,
@@ -66,6 +71,9 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     NgxChartsModule,
     MatTableModule,
     MatSelectModule,
+    MatPaginatorModule,
+    MatAutocompleteModule,
+    MatSortModule,
     SmartRules
   ],
   providers: [HttpClientModule],

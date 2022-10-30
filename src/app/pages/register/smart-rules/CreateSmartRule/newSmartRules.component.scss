@@ -1,6 +1,4 @@
-.card {
-    width: -webkit-fill-available;
-    height: -webkit-fill-available;    
+.card {  
     .form {
         display: flex;
         flex-direction: column;
@@ -15,8 +13,15 @@
     padding: 10px 0;    
 }
 
-.mat-grid-tile {
-    width: -webkit-fill-available;    
+.container{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+
+.contentTile{
+    width: 40%;
 }
 
 .mat-label {

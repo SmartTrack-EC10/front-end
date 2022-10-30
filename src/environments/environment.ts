@@ -4,9 +4,9 @@
 
 export const environment = {
   production: false,
-  apiBroker: 'http://3.88.205.182:1026/v2',
-  apiAgent:  'http://3.88.205.182:4041',  
-  apiIoT:    'http://3.88.205.182:4041/iot',
+  apiBroker: 'http://52.7.63.69:1026/v2',
+  apiAgent:  'http://52.7.63.69:4041',  
+  apiIoT:    'http://52.7.63.69:4041/iot',
   apiPython: 'http://localhost:8080'
 };
 

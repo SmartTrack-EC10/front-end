@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import * as uuid from 'uuid';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Router } from '@angular/router';
@@ -21,10 +21,18 @@ export class TractorComponent implements OnInit {
     private route: Router
   ) {
     this.pageForm = this.fb.group({
-      alias: [''],
-      model: [''],
-      manufacturer: [''],
-      year: [''],
+      alias: ['', [
+        Validators.required,
+      ]],
+      model: ['', [
+        Validators.required,
+      ]],
+      manufacturer: ['', [
+        Validators.required,
+      ]],
+      year: ['', [
+        Validators.required,
+      ]],
     });
   }
 

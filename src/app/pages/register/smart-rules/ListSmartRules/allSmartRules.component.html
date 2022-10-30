@@ -2,7 +2,7 @@
   <mat-card-content>
     <div class="col-md-12" id="titleDiv" style="display: flex">
       <div class="col-md-6 SmartRulesTitle">
-        <p>List of SmartRules</p>
+        <p>Lista de SmartRules</p>
       </div>
       <div class="col-md-6 SmartRulesButton">
         <button
@@ -12,7 +12,7 @@
           (click)="loadMoreSubscriptions()"
           [disabled]="!isValidSRList"
         >
-          Load More
+          Carregar mais
         </button>
       </div>
     </div>
@@ -23,7 +23,7 @@
     
             <!-- Position Column -->
             <ng-container matColumnDef="description">
-              <th mat-header-cell *matHeaderCellDef>Description</th>
+              <th mat-header-cell *matHeaderCellDef>Descrição</th>
               <td mat-cell *matCellDef="let element">{{ element.description }}</td>
             </ng-container>
     
@@ -35,13 +35,13 @@
     
             <!-- Weight Column -->
             <ng-container matColumnDef="expires">
-              <th mat-header-cell *matHeaderCellDef>Expired</th>
+              <th mat-header-cell *matHeaderCellDef>Expira em</th>
               <td mat-cell *matCellDef="let element">{{ element.expires }}</td>
             </ng-container>
     
             <!-- Symbol Column -->
             <ng-container matColumnDef="options">
-              <th mat-header-cell *matHeaderCellDef>Options</th>
+              <th mat-header-cell *matHeaderCellDef>Opções</th>
               <td mat-cell *matCellDef="let element">...</td>
             </ng-container>
     
