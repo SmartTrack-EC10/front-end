@@ -1,7 +1,7 @@
 <mat-card class="card">
     <mat-card-content>
-        <mat-grid-list cols="2" class="grid">
-            <mat-grid-tile class="contentTile">
+        <div class="container">
+            <div class="contentTile">
                 <form class="form" [formGroup]="pageForm">
                     <mat-form-field class="example-form-field" appearance="fill">
                         <mat-label>Descrição:</mat-label>
@@ -45,8 +45,8 @@
 
                     <button mat-flat-button color="primary" (click)="saveRule()">Salvar</button>
                 </form>
-            </mat-grid-tile>
-            <mat-grid-tile class=" overflow">
+            </div>
+            <div class=" contentTile">
                 <div class="listTrucks">
                     <mat-expansion-panel [expanded]="selectedPattern === 'Devices' && selectedEntitiesType === 'Person'"
                         disabled>
@@ -57,28 +57,31 @@
                         </div>
                         <div class="devicesButtons">
                             <button mat-flat-button class="loadDevices" color="primary"
-                                (click)="LoadMoreObjectList('Person')" [disabled]="!hasMorePerson"> Load More </button>
+                                (click)="LoadMoreObjectList('Person')" [disabled]="!hasMorePerson"> Carregar mais
+                            </button>
                             <button mat-flat-button class="saveDevices" color="primary"
-                                (click)="saveObjectList('Person')" [disabled]="isValidPersonList"> Save </button>
+                                (click)="saveObjectList('Person')" [disabled]="isValidPersonList"> Salvar </button>
                             <button mat-flat-button class="updateDevices" color="primary"
-                                (click)="updateObjectList('Person')" [disabled]="!isValidPersonList"> Update </button>
+                                (click)="updateObjectList('Person')" [disabled]="!isValidPersonList"> Atualizar
+                            </button>
                         </div>
                     </mat-expansion-panel>
 
                     <mat-expansion-panel [expanded]="selectedPattern === 'Devices' && selectedEntitiesType === 'Truck'"
                         disabled>
-                        <mat-label>Truck: </mat-label>
+                        <mat-label>Trator: </mat-label>
                         <div class="checkBoxDevices" *ngFor="let t of truckOptions">
                             <mat-checkbox [(ngModel)]="t.status" [checked]="t.status" name="{{t.object.id}}"
                                 [disabled]="isValidTruckList"> {{t.object.alias}} </mat-checkbox>
                         </div>
                         <div class="devicesButtons">
                             <button mat-flat-button class="loadDevices" color="primary"
-                                (click)="LoadMoreObjectList('Truck')" [disabled]="!hasMoreTruck"> Load More </button>
+                                (click)="LoadMoreObjectList('Truck')" [disabled]="!hasMoreTruck"> Carregar mais
+                            </button>
                             <button mat-flat-button class="saveDevices" color="primary"
-                                (click)="saveObjectList('Truck')" [disabled]="isValidTruckList"> Save </button>
+                                (click)="saveObjectList('Truck')" [disabled]="isValidTruckList"> Salvar </button>
                             <button mat-flat-button class="updateDevices" color="primary"
-                                (click)="updateObjectList('Truck')" [disabled]="!isValidTruckList"> Update </button>
+                                (click)="updateObjectList('Truck')" [disabled]="!isValidTruckList"> Atualizar </button>
                         </div>
                     </mat-expansion-panel>
 
@@ -110,7 +113,8 @@
                         </div>
                         <div class="devicesButtons">
                             <button mat-flat-button class="loadDevices" color="primary"
-                                (click)="LoadMoreObjectList('AgriParcel')" [disabled]="!hasMoreAgriParcel"> Carregar mais
+                                (click)="LoadMoreObjectList('AgriParcel')" [disabled]="!hasMoreAgriParcel"> Carregar
+                                mais
                             </button>
                             <button mat-flat-button class="saveDevices" color="primary"
                                 (click)="saveObjectList('AgriParcel')" [disabled]="isValidAgriParcelList"> Salvar
@@ -126,8 +130,8 @@
                     <measurement-rule [selectedRuleType]="selectedRuleType"
                         (meStructSend)="buildQueryMeasurements($event)"></measurement-rule>
                 </div>
-            </mat-grid-tile>
-        </mat-grid-list>
+            </div>
+        </div>
     </mat-card-content>
 </mat-card>
 <ngx-spinner [fullScreen]="true">

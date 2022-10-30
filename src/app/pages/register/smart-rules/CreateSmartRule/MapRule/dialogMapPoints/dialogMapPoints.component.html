@@ -6,7 +6,7 @@
   </div>
   <div class="mapOptions">
     <button mat-flat-button color="primary" (click)="onCancel()"> Cancel </button>
-    <button mat-flat-button color="primary" (click)="saveCoordenates()" [disabled]="!enableSave"> Save </button>
+    <button mat-flat-button color="primary" (click)="saveCoordenates()" [disabled]="!enableSave"> Salvar </button>
     <label>AgriFarm:</label>
     <mat-select [(ngModel)]="agriFarmObject" (selectionChange)="getAgriParcelList()">      
       <mat-option [value]="''"> None </mat-option>   

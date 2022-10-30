@@ -1,27 +1,29 @@
-<mat-expansion-panel [expanded]="selectedRuleType === 'Geofence'" (opened)="initMap()" disabled>    
+<mat-expansion-panel [expanded]="selectedRuleType === 'Geofence'" (opened)="initMap()" disabled>
     <div class="map-container">
         <div class="map-frame">
             <div id="mapLeaflet"></div>
         </div>
-    </div>     
+    </div>
 
     <div class="Options">
         <div class="Georel">
             <label>Georel Rule:</label>
             <mat-radio-group [(ngModel)]="georelRule">
-                <mat-radio-button class="example-radio-button" [value]="'coveredBy'"> CoveredBy </mat-radio-button> 
-                <mat-radio-button class="example-radio-button" [value]="'intersects'"> Intersects </mat-radio-button> 
-                <mat-radio-button class="example-radio-button" [value]="'disjoint'"> Disjoint </mat-radio-button>  
+                <mat-radio-button class="example-radio-button" [value]="'coveredBy'"> CoveredBy </mat-radio-button>
+                <mat-radio-button class="example-radio-button" [value]="'intersects'"> Intersects </mat-radio-button>
+                <mat-radio-button class="example-radio-button" [value]="'disjoint'"> Disjoint </mat-radio-button>
             </mat-radio-group>
         </div>
         <div class="SelectedGeofence">
-            <input matInput type="text" placeholder="Selected Geofence" disabled /> 
-            <mat-icon  (click)="openGeorelDescription()" >help</mat-icon>
+            <input matInput type="text" placeholder="Selected Geofence" disabled />
+            <mat-icon (click)="openGeorelDescription()">help</mat-icon>
         </div>
         <div class="Buttons">
-            <button mat-flat-button color="primary" (click)="openPopupGeonfece()" [disabled]="correctObjReturn"> Geofence </button>  
-            <button mat-flat-button color="primary" (click)="onSave()" [disabled]="correctObjReturn"> Save </button>  
-            <button mat-flat-button color="primary" (click)="onUpdate()" [disabled]="!correctObjReturn"> Update </button> 
-        </div> 
-    </div>                                
+            <button mat-flat-button color="primary" (click)="openPopupGeonfece()" [disabled]="correctObjReturn">
+                Geofence </button>
+            <button mat-flat-button color="primary" (click)="onSave()" [disabled]="correctObjReturn"> Salvar </button>
+            <button mat-flat-button color="primary" (click)="onUpdate()" [disabled]="!correctObjReturn"> Atualizar
+            </button>
+        </div>
+    </div>
 </mat-expansion-panel>
