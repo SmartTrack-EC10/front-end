@@ -1,7 +1,9 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Input, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { interval, Subscription } from 'rxjs';
+import { NotificationApiService } from 'src/app/core/services/notification-service/notification-api.service';
 
 export interface Notifications {
   name: string;
@@ -28,20 +30,33 @@ const NAMES: string[] = [
   styleUrls: ['./maintenance-card.component.scss']
 })
 export class MaintenanceCardComponent implements AfterViewInit {
-  displayedColumns: string[] = ['name', 'status', 'date', 'action'];
+  @Input() id = 'urn:ngsi-ld:Truck:2feefcf6-b7c8-470f-a628-d92300ef64c4';
+  displayedColumns: string[] = ['message', 'status', 'datetime', 'action'];
   dataSource: MatTableDataSource<Notifications>;
+  subscription: Subscription;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor() {
-    // Create 100 users
-    const notif = Array.from({ length: 100 }, (_, k) => this.createNotification());
-
-    // Assign the data to the data source for the table to render
-    this.dataSource = new MatTableDataSource(notif);
+  constructor(private service: NotificationApiService,) {
+  }
+  ngOnInit(): void {
+    const source = interval(120000)
+    const _this = this;
+    this.getNotf()
+    this.subscription = source.subscribe(() => {
+      this.getNotf()
+    });
+    
   }
 
+  getNotf(){
+    this.service
+    .getNotification(this.id)
+    .subscribe((res) => {
+      this.dataSource = new MatTableDataSource(res);
+    });
+  }
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
@@ -56,13 +71,4 @@ export class MaintenanceCardComponent implements AfterViewInit {
     }
   }
 
-  /** Builds and returns a new User. */
-  createNotification(): Notifications {
-
-    return {
-      name: NAMES[Math.round(Math.random() * (NAMES.length - 1))],
-      status: STATUS[Math.round(Math.random() * (NAMES.length - 1))],
-      date: new Date(),
-    };
-  }
 }

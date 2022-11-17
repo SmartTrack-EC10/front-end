@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { finalize } from 'rxjs';
 import { NotificationApiService } from 'src/app/core/services/notification-service/notification-api.service';
@@ -10,6 +10,8 @@ import { NgxSpinnerService } from "ngx-spinner";
   styleUrls: ['./notifications.component.scss'],
 })
 export class NotificationsComponent implements OnInit {
+  @Input() id = '';
+
   value: number = 0;
   units: string = 'alarmes';
 
@@ -36,7 +38,7 @@ export class NotificationsComponent implements OnInit {
     const _this = this;
     this.spinner.show();
     this.service
-      .getNotification()
+      .getNotification(this.id)
       .pipe(finalize(() =>  this.spinner.hide()))
       .subscribe((res) => {
         this.dataSource = res;
