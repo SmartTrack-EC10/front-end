@@ -7,7 +7,7 @@ export const environment = {
   apiBroker: 'http://52.7.63.69:1026/v2',
   apiAgent:  'http://52.7.63.69:4041',  
   apiIoT:    'http://52.7.63.69:4041/iot',
-  apiPython: 'http://localhost:8080'
+  apiPython: 'http://52.7.63.69:8080'
 };
 
 /*
