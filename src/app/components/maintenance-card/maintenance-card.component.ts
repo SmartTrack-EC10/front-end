@@ -30,7 +30,7 @@ const NAMES: string[] = [
   styleUrls: ['./maintenance-card.component.scss']
 })
 export class MaintenanceCardComponent implements AfterViewInit {
-  @Input() id = 'urn:ngsi-ld:Truck:2feefcf6-b7c8-470f-a628-d92300ef64c4';
+  @Input() id: string;
   displayedColumns: string[] = ['message', 'status', 'datetime', 'action'];
   dataSource: MatTableDataSource<Notifications>;
   subscription: Subscription;
@@ -47,21 +47,25 @@ export class MaintenanceCardComponent implements AfterViewInit {
     this.subscription = source.subscribe(() => {
       this.getNotf()
     });
-    
+
   }
 
-  getNotf(){
+  getNotf() {
     this.service
-    .getNotification(this.id)
-    .subscribe((res) => {
-      this.dataSource = new MatTableDataSource(res);
-    });
+      .getNotification(this.id)
+      .subscribe((res) => {
+        this.dataSource = new MatTableDataSource(res);
+      });
   }
   ngAfterViewInit() {
+    console.log(this.id)
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
 
+  ngOnChanges() {
+    this.getNotf()
+  }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
