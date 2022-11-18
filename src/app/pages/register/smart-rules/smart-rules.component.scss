@@ -1,6 +1,7 @@
 .card {
     width: -webkit-fill-available;
-    height: -webkit-fill-available;
+    height: 800px;
+    overflow-y: scroll;
 
     .form {
         display: flex;
